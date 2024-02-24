@@ -93,6 +93,20 @@ The tokenization process in Minishell is designed to efficiently handle command 
   #define T_GGREAT  9 // >>
   #define T_WORD   10 // word
   #define T_UNKNOWN 11 // unknown
+
+### `int ft_get_word(char *s, int *j);`
+
+The `ft_get_word` function is designed to extract a word from a string, handling various complexities. Examples of complexities include words within quotes or spaces between words. The function parameters are:
+
+- **s**: The string from which the word is to be extracted.
+
+- **j**: A pointer used to store the length of the extracted word.
+
+- **Return Value**: If successful, the function returns 0. In case of failure, it returns -1.
+
+This function is particularly useful in scenarios where words may contain special characters or spaces, ensuring accurate extraction for further processing in the tokenization process.
+> "hello'world"itisme --> hello'world
+> hi     --> hi
 >> ```c int	ft_get_word(char *s, int *jj);```
 > ```c  int	ft_peak(char **line, char *toks);```
 > ```c int	ft_peak_2(char **line, char *toks);```
