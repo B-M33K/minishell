@@ -150,8 +150,17 @@ REDIRECTIONOP	--> "<"
 				--> "<<"
 				--> ">>"
 ```
+
 ## Command Execution
 The building of the tree make the execution realy easy, just make sure to execute a single commande right and the whole commande line is just a recursive process
+```c
+void		ft_exc_and(t_cmdline *cmdline);
+void		ft_exc_block(t_cmdline *cmdline);
+void		ft_exc_cmd(t_cmdline *cmdline);
+void		ft_exc_cmdline(t_cmdline *cmdline);
+void		ft_exc_or(t_cmdline *cmdline);
+void		ft_exc_pipe(t_cmdline *cmdline);
+
 
 
 
