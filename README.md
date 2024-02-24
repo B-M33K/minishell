@@ -26,7 +26,7 @@ you should be able to see a prompt like this : `minishel1 $>`
 
 ## Features
 
-### && and || with parenthesis for priorities
+### `&&` and `||` with parenthesis for priorities
 ```bash
 minishel1 $> false && echo "minishell" || pwd
 minishell $> (true || pwd) && (echo "hello" || ls -la)
@@ -53,3 +53,21 @@ env 	  # Set environment and execute command, or print environment.
 exit	  # Exit the shell.
 true, false  # Just to test the conditionals
 ```
+## Summary
+
+## Minishell Overview
+
+The Minishell project is designed to parse commands, build a tree structure, and execute them, closely mirroring the functionality of the 'bash' shell. The process involves several key steps:
+
+1. **Tokenization**[Tokenization]: The command is initially tokenized to break it down into individual components, facilitating further analysis.
+
+2. **Syntax Analysis**[Syntax Analysis]: The syntax of the command is then analyzed to ensure it adheres to the shell syntax. This step is crucial for correctly interpreting user input.
+
+3. **Tree Construction**[Tree Construction]: A tree structure is constructed to represent the command. This tree serves as a logical representation that aids in the execution process.
+
+4. **Command Execution**[Command Execution]: The parsed and analyzed command is executed based on the constructed tree. This step involves handling various signals, including Ctrl-C, Ctrl-D, Ctrl-Z, and Ctrl-\, to emulate the behavior of the 'bash' shell.
+  
+5. **Redo**
+
+This complex process ensures that the Minishell performs command parsing and execution seamlessly, providing a shell experience similar to established counterparts.
+
