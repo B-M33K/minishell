@@ -7,9 +7,13 @@ As a starting point, it's worth noting that the term 'mini' doesn't fundamentall
 1. [Requirement](#installation)
 2. [Usage](#usage)
 3. [Features](#features)
-4. [Contributing](#contributing)
-5. [License](#license)
-6. [Credits](#credits)
+4. [Minishell Overview](#minishell-overview)
+5. [Tokenization](#tokenization)
+6. [Syntax Analysis](#syntax-analysis)
+7. [Tree Construction](#tree-construction)
+8. [Command Execution](#command-execution)
+9. [License](#license)
+10. [Credits](#credits)
 
 ## Reqirement
 - c compiler (Ensure to adjust the compiler in the makefile to match the one you are using)
@@ -121,3 +125,33 @@ In the context of Minishell, syntax analysis is performed using the concept of a
 Using automata in the syntax analysis allows for a systematic and rule-based approach to validate command structures. It ensures that the Minishell language is interpreted accurately, helping to prevent unexpected behavior and enhancing the user experience.
 This implementation of automata aligns with language theory principles, making the syntax analysis robust and efficient for a wide range of Minishell commands.
 The automata for the minishell : ![Automata](https://www.tldraw.com/r/ffGdtc9RCaHTHdnps295Z?viewport=-347,136,2560,1355&page=page:JP4s25SWsJkg2vwvLxRVt)
+
+## Tree Construction
+
+After making sure that the syntax is correct we move to build our tree :
+The tree building is based on the folowing Grammer :
+```
+CMDLINE		--> PIPELINE
+			--> PIPELINE "||" CMDLINE
+			--> PIPELINE "&&" CMDLINE
+
+PIPELINE	--> CMD 
+			--> CMD "|" PIPELINE
+
+CMD		--> BLOCK
+		--> (REDIRECTION | word)+
+
+BLOCK	--> "(" CMDLINE ")" ((">" | ">>") filename)*
+
+REDIRECTION --> REDIRECTIONOP filename
+
+REDIRECTIONOP	--> "<"
+				--> ">"
+				--> "<<"
+				--> ">>"
+```
+## Command Execution
+The building of the tree make the execution realy easy, just make sure to execute a single commande right and the whole commande line is just a recursive process
+
+
+
