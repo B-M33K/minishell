@@ -1,0 +1,38 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_name_does_exist.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: obahi <obahi@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/19 20:10:05 by obahi             #+#    #+#             */
+/*   Updated: 2023/08/20 11:56:10 by obahi            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "minishell.h"
+
+int ft_name_does_exist(const char *name)
+{
+    char    *env_name;
+    int     name_len;
+    int     i;
+
+    env_name = 0;
+    name_len = 0;
+    i = 0;
+    name_len = ft_strlen(name);
+    while (*(environ + i))
+    {
+        env_name = ft_get_name(*(environ + i));
+        if (!ft_strncmp(name, env_name, name_len))
+        {
+            ft_free(&env_name);
+            return (i);
+        }
+        else
+            ft_free(&env_name);  
+        i++;
+    }
+   return (-1);
+}
