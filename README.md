@@ -120,4 +120,4 @@ This function is created to address the issue with `ft_peak`, where it might con
 In the context of Minishell, syntax analysis is performed using the concept of automata from language theory. In simple terms, an automaton takes a line of input and answers the question: Does this line belong to the language defined by Minishell?
 Using automata in the syntax analysis allows for a systematic and rule-based approach to validate command structures. It ensures that the Minishell language is interpreted accurately, helping to prevent unexpected behavior and enhancing the user experience.
 This implementation of automata aligns with language theory principles, making the syntax analysis robust and efficient for a wide range of Minishell commands.
-The automata for the minishell : ![Automata](https://www.tldraw.com/s/v2_c_r23xMFNPXcIc5osDBZs33?viewport=-678%2C-77%2C3063%2C1621&page=page%3AJP4s25SWsJkg2vwvLxRVt)
+The automata for the minishell : ![Automata](https://www.tldraw.com/r/ffGdtc9RCaHTHdnps295Z?viewport=-347,136,2560,1355&page=page:JP4s25SWsJkg2vwvLxRVt)
