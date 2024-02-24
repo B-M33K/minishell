@@ -71,26 +71,28 @@ The Minishell project is designed to parse commands, build a tree structure, and
 This complex process ensures that the Minishell performs command parsing and execution seamlessly, providing a shell experience similar to established counterparts.
 
 ## Tokenization
-for tokenization we try try to ply it smart, ther is no need to buit a whole linked list just for some data about tokens, let's take the folowing example ``` bash ls | ||||||| &&&&&&& gd &&&&&&&&&&&    d ()```
-if we use the linked list or any similar approach, we end up with a linked list of token that are syntaxecly wrong, while we could stop our tokenzing process at the first `or` after `pipe` : ```bash ls | ||```
-The idea is simple our tokenzer is based on three function :
-> ```c int	ft_get_token(char **line, char **token);```
-- - `line` : the address of the command line we took as ann input, not thate we pass the line by address because it is goining to change every time we call the function
-  - `token` : in C language we can not return two values from  a function, so **token** is used to hold the values of the actual token
-  - this function return an int representing the type of the token
-```c
-# define T_OPRNTHS 1 // open paranthesis
-# define T_CPRNTHS 2 // close paranthesis
-# define T_AND 3 // and
-# define T_OR 4 // or
-# define T_PIPE 5 // pipe
-# define T_LESS 6 // < 
-# define T_LLESS 7 // <<
-# define T_GREAT 8 // >
-# define T_GGREAT 9 // >>
-# define T_WORD 10 //
-# define T_UNKNOWN 11
-```
-> ```c int	ft_get_word(char *s, int *jj);```
+The tokenization process in Minishell is designed to efficiently handle command input. The primary focus is on avoiding unnecessary data structures, such as linked lists, when extracting tokens. Instead, the tokenization is driven by three key functions:
+
+### `int ft_get_token(char **line, char **token);`
+
+- **line**: The address of the command line taken as input. It is passed by address since it will change with each function call.
+
+- **token**: In C, returning two values from a function is not straightforward. The **token** parameter is used to store the actual token value.
+
+- **Return Value**: The function returns an integer representing the type of the token. The defined token types are as follows:
+
+  ```c
+  #define T_OPRNTHS 1 // open parenthesis
+  #define T_CPRNTHS 2 // close parenthesis
+  #define T_AND     3 // and
+  #define T_OR      4 // or
+  #define T_PIPE    5 // pipe
+  #define T_LESS    6 // <
+  #define T_LLESS   7 // <<
+  #define T_GREAT   8 // >
+  #define T_GGREAT  9 // >>
+  #define T_WORD   10 // word
+  #define T_UNKNOWN 11 // unknown
+>> ```c int	ft_get_word(char *s, int *jj);```
 > ```c  int	ft_peak(char **line, char *toks);```
 > ```c int	ft_peak_2(char **line, char *toks);```
