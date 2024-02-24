@@ -105,8 +105,19 @@ The `ft_get_word` function is designed to extract a word from a string, handling
 - **Return Value**: If successful, the function returns 0. In case of failure, it returns -1.
 
 This function is particularly useful in scenarios where words may contain special characters or spaces, ensuring accurate extraction for further processing in the tokenization process.
-> "hello'world"itisme --> hello'world
-> hi     --> hi
->> ```c int	ft_get_word(char *s, int *jj);```
-> ```c  int	ft_peak(char **line, char *toks);```
-> ```c int	ft_peak_2(char **line, char *toks);```
+```"hello'world"itisme --> hello'world```
+
+### int	ft_peak(char **line, char *toks);
+the `ft_peak` function is designed to check whether the next non-whitespace character in the given string (*line) is present in a specified set of characters (toks).
+- **line**: A pointer to a pointer to a string. The function uses a double pointer to be able to modify the original pointer and update it to the new position in the string.
+- **toks**: A string containing characters to be checked.
+- **Return Value**: If the next non-whitespace character in the string is found in the specified set of characters, it returns 1 (true). Otherwise, it returns 0 (false).
+  
+### int	ft_peak_2(char **line, char *toks);
+This function is created to address the issue with `ft_peak`, where it might confuse between `|` and `||`.
+
+## Syntax Analysis
+In the context of Minishell, syntax analysis is performed using the concept of automata from language theory. In simple terms, an automaton takes a line of input and answers the question: Does this line belong to the language defined by Minishell?
+Using automata in the syntax analysis allows for a systematic and rule-based approach to validate command structures. It ensures that the Minishell language is interpreted accurately, helping to prevent unexpected behavior and enhancing the user experience.
+This implementation of automata aligns with language theory principles, making the syntax analysis robust and efficient for a wide range of Minishell commands.
+The automata for the minishell : ![Automata](https://www.tldraw.com/r/K7OZ1ykhIJkm2L1Yyki18?viewport=-678,-77,3062,1621&page=page:JP4s25SWsJkg2vwvLxRVt)
