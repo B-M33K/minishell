@@ -1,0 +1,18 @@
+CMDLINE		--> PIPELINE
+			--> PIPELINE "||" CMDLINE
+			--> PIPELINE "&&" CMDLINE
+
+PIPELINE	--> CMD 
+			--> CMD "|" PIPELINE
+
+CMD		--> BLOCK
+		--> (REDIRECTION | word)+
+
+BLOCK	--> "(" CMDLINE ")" ((">" | ">>") filename)*
+
+REDIRECTION --> REDIRECTIONOP filename
+
+REDIRECTIONOP	--> "<"
+				--> ">"
+				--> "<<"
+				--> ">>"
