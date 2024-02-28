@@ -162,5 +162,5 @@ void		ft_exc_pipe(t_cmdline *cmdline);
 ```
 
 ## Credits
-Big thanks to [mlahlafi](https://github.com/ryozakii)
+Teamed up with [mlahlafi](https://github.com/ryozakii) on this awesome project – we basically rocked it! Our skills meshed like peanut butter and jelly, turning dull ideas into something seriously cool. It was a blast working together, and the project? Well, let's just say it's a masterpiece of teamwork!
 
