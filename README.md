@@ -12,8 +12,7 @@ As a starting point, it's worth noting that the term 'mini' doesn't fundamentall
 6. [Syntax Analysis](#syntax-analysis)
 7. [Tree Construction](#tree-construction)
 8. [Command Execution](#command-execution)
-9. [License](#license)
-10. [Credits](#credits)
+9. [Credits](#credits)
 
 ## Reqirement
 - c compiler (Ensure to adjust the compiler in the makefile to match the one you are using)
@@ -160,7 +159,8 @@ void		ft_exc_cmd(t_cmdline *cmdline);
 void		ft_exc_cmdline(t_cmdline *cmdline);
 void		ft_exc_or(t_cmdline *cmdline);
 void		ft_exc_pipe(t_cmdline *cmdline);
+```
 
-
-
+## Credits
+Big thanks to [mlahlafi](https://github.com/ryozakii)
 
